@@ -7,7 +7,7 @@ using SmartList.Models;
 
 namespace SmartList.Services
 {
-    public class DataService
+    public class DataService : IDataService
     {
         public IList<Person> GetPeople()
         {

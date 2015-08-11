@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using GalaSoft.MvvmLight.Ioc;
+using Microsoft.Practices.ServiceLocation;
+using SmartList.Services;
 using Xamarin.Forms;
 
 namespace SmartList
@@ -11,8 +13,17 @@ namespace SmartList
     {
         public App()
         {
+            SetupServiceLocator();
             // The root page of your application
             MainPage = new NavigationPage( new Views.MainPage());
+        }
+
+        private static void SetupServiceLocator()
+        {
+            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+
+            SimpleIoc.Default.Register<IDataService, DataService>();
+            SimpleIoc.Default.Register<INavigationService, NavigationService>();
         }
 
         protected override void OnStart()

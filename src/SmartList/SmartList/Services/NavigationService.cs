@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace SmartList.Services
 {
-    public class NavigationService
+    public class NavigationService : INavigationService
     {
         private readonly INavigation _navigation;
 
