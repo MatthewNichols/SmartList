@@ -3,14 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartList.Views.MainPage">
   <StackLayout>
-    <Label Text="Display Person" HorizontalOptions="Center" FontSize="64" />
+    <Label Text="Lists" HorizontalOptions="Center" FontSize="64" />
     <ListView x:Name="list" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" >
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
             <StackLayout Orientation="Horizontal">
-              <Label Text="{Binding FullName}" FontSize="12"/>
-              <Label Text="{Binding Email}" FontSize="10"/>
+              <Label Text="{Binding Name}" FontSize="20"/>
             </StackLayout>
           </ViewCell>
         </DataTemplate>  

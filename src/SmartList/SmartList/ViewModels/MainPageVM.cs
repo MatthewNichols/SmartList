@@ -17,16 +17,16 @@ namespace SmartList.ViewModels
     {
         private readonly NavigationService _navigationService;
 
-        public MainPageVM(IEnumerable<Person> people, NavigationService navigationService)
+        public MainPageVM(IEnumerable<CheckableList> lists, NavigationService navigationService)
         {
             _navigationService = navigationService;
-            Items = people.Select(p => new PersonVM(p)).ToList();
+            Items = lists.Select(p => new CheckableListVM(p)).ToList();
         }
 
-        public IList<PersonVM> Items { get; set; }
+        public IList<CheckableListVM> Items { get; set; }
         
-        private PersonVM _selectedItem;
-        public PersonVM SelectedItem
+        private CheckableListVM _selectedItem;
+        public CheckableListVM SelectedItem
         {
             get { return _selectedItem; }
             set
@@ -34,7 +34,7 @@ namespace SmartList.ViewModels
                 if (value != _selectedItem)
                 {
                     _selectedItem = value;
-                    _navigationService.NavigateToPerson(SelectedItem);
+                    _navigationService.NavigateToCheckableList(SelectedItem);
                 }
             }
         }

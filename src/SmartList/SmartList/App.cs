@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using SmartList.Interfaces;
 using SmartList.Services;
 using Xamarin.Forms;
 

@@ -28,6 +28,8 @@ namespace SmartList.Droid
 		{
 			global::GalaSoft.MvvmLight.Resource.String.ApplicationName = global::SmartList.Droid.Resource.String.ApplicationName;
 			global::GalaSoft.MvvmLight.Resource.String.Hello = global::SmartList.Droid.Resource.String.Hello;
+			global::Xamarin.Forms.Platform.Resource.String.ApplicationName = global::SmartList.Droid.Resource.String.ApplicationName;
+			global::Xamarin.Forms.Platform.Resource.String.Hello = global::SmartList.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute

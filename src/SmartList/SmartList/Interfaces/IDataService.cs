@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using SmartList.Models;
 
-namespace SmartList.Services
+namespace SmartList.Interfaces
 {
     public interface IDataService
     {
         IList<Person> GetPeople();
+        IList<CheckableList> GetLists();
     }
 }

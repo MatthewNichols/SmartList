@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Practices.ServiceLocation;
+using SmartList.Interfaces;
 using SmartList.Models;
 using SmartList.Services;
 using SmartList.ViewModels;
@@ -18,8 +19,8 @@ namespace SmartList.Views
             InitializeComponent();
             var dataService = ServiceLocator.Current.GetInstance<IDataService>();
             var navigationService = new NavigationService(Navigation);
-            var people = dataService.GetPeople();
-            BindingContext = new MainPageVM(people, navigationService);
+            var lists = dataService.GetLists();
+            BindingContext = new MainPageVM(lists, navigationService);
         }
     }
 }
