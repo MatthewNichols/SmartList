@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GalaSoft.MvvmLight;
 using SmartList.Models;
 
 namespace SmartList.ViewModels
 {
-    public class CheckableListVM
+    public class CheckableListVM : ViewModelBase
     {
         public CheckableListVM(CheckableList list)
         {
@@ -27,7 +28,7 @@ namespace SmartList.ViewModels
 
     }
 
-    public class CheckableListItemVM
+    public class CheckableListItemVM : ViewModelBase
     {
         public CheckableListItemVM(CheckableListItem item)
         {
@@ -38,6 +39,21 @@ namespace SmartList.ViewModels
 
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public bool Complete { get; set; }
+
+        private bool _complete;
+
+        public bool Complete
+        {
+            get { return _complete; }
+            set
+            {
+                if (value != _complete)
+                {
+                    _complete = value;
+                    RaisePropertyChanged(() => Complete);
+                }
+            }
+        }
+
     }
 }
