@@ -5,7 +5,6 @@ namespace SmartList.Interfaces
 {
     public interface IDataService
     {
-        IList<Person> GetPeople();
         IList<CheckableList> GetLists();
     }
 }
