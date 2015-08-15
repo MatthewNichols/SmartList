@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using SmartList.Models;
 
 namespace SmartList.ViewModels
@@ -18,14 +19,29 @@ namespace SmartList.ViewModels
             LastModifiedDate = list.LastModifiedDate;
 
             Items = list.Items.Select(item => new CheckableListItemVM(item));
+            
         }
 
+        private bool _showCompleted = false;
+        public Boolean ShowCompleted {
+            get { return _showCompleted;}
+            set
+            {
+                if (value != _showCompleted)
+                {
+                    _showCompleted = value;
+                    RaisePropertyChanged(() => ShowCompleted);
+                    RaisePropertyChanged(() => VisibleItems);
+                }
+            } }
+        
         public Guid Id { get; set; }
         public string Name { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime LastModifiedDate { get; set; }
         public IEnumerable<CheckableListItemVM> Items { get; set; }
 
+        public IEnumerable<CheckableListItemVM> VisibleItems => _showCompleted ? Items : Items.Where(item => !item.Complete);
     }
 
     public class CheckableListItemVM : ViewModelBase

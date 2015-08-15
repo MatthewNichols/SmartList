@@ -4,9 +4,12 @@
              xmlns:controls="clr-namespace:SmartList.Controls;assembly=SmartList"
              x:Class="SmartList.Views.CheckableListPage">
     <StackLayout>
-        <Label Text="{Binding Name}"/>
-
-        <ListView x:Name="list" ItemsSource="{Binding Items}">
+        <StackLayout Orientation="Horizontal">
+            <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" FontSize="20"/>
+            <Label Text="Show Completed?" HorizontalOptions="End"/>
+            <Switch HorizontalOptions="Start" IsToggled="{Binding ShowCompleted}" HeightRequest="20" WidthRequest="100"></Switch>
+        </StackLayout>
+        <ListView x:Name="list" ItemsSource="{Binding VisibleItems}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
