@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using SmartList.Interfaces;
@@ -15,15 +16,7 @@ namespace SmartList.Services
     {
         public IList<CheckableList> GetLists()
         {
-            //return new List<CheckableList>
-            //{
-            //    CreateExampleCheckableList()
-            //};
-            //Path.Combine(Environment.GetFolderPath())
-
-            //new SQLiteConnection();
-
-            return new List<CheckableList> { 
+            return new List<CheckableList> {
                CreateExampleCheckableList()
             };
         }
